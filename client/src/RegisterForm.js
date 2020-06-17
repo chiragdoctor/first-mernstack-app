@@ -10,6 +10,7 @@ export default class RegisterForm extends Component {
         phone: '',
         age: 0,
         gender: '',
+        languages: [],
         color: '#ffffff',
         date: '',
         datetime: '',
@@ -30,7 +31,18 @@ export default class RegisterForm extends Component {
   }
 
   onChangeHandler(event) {
-    this.setState({ [event.target.name]: event.target.value });          
+      if(event.target.name === 'languages') {
+        if(event.target.checked) {
+          this.setState({ languages: [...this.state.languages, event.target.value]});
+        } else {
+          let languages = this.state.languages.filter(l => l !== event.target.value);
+          this.setState({ languages });
+        }
+        
+      } else {
+        this.setState({ [event.target.name]: event.target.value });        
+      }
+  
   }
 
   onSubmit(event) {
@@ -133,6 +145,44 @@ export default class RegisterForm extends Component {
                 onChange={this.onChangeHandler}
               />
               Female
+            </label>
+          </div>
+
+          <div className="form-group">
+            <p>
+              Laguages
+              <span className="clue">(Check all that apply)</span>
+            </p>
+
+            <label>
+              <input
+                name="languages"
+                value="React"
+                type="checkbox"
+                className="input-checkbox"
+                onChange={this.onChangeHandler}
+              />
+              React
+            </label>
+            <label>
+              <input
+                name="languages"
+                value="Nodejs"
+                type="checkbox"
+                className="input-checkbox"
+                onChange={this.onChangeHandler}
+              />
+              NodeJs
+            </label>
+            <label>
+              <input
+                name="languages"
+                value="Javascript"
+                type="checkbox"
+                className="input-checkbox"
+                onChange={this.onChangeHandler}
+              />
+              Javascript
             </label>
           </div>
           <div className="form-group">
