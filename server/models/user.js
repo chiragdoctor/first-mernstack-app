@@ -18,9 +18,6 @@ const UserSchema = new Schema({
     email: {
         type: String
     },
-    languages: {
-        type: [String]
-    },
     color: {
         type: String
     },
