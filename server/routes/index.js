@@ -5,15 +5,16 @@ const User = require('../models/user');
 
 /* GET home page. */
 router.get('/', async (req, res) => {
-  const users = await User.find();
-  res.json({ users });
+	const users = await User.find();
+	res.json({ users });
 });
 
-router.post('/', async (req, res) => {
-  const user = new User(req.body);
-  await user.save();
+router.post('/save', async (req, res) => {
+	console.log('Hit taken');
+	const user = new User(req.body);
+	await user.save();
 
-  res.json({ user });
+	res.json({ user });
 });
 
 module.exports = router;
