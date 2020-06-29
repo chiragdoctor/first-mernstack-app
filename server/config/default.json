@@ -1,5 +1,5 @@
 {
-    "db" : {
-        "connection": "mongodb://localhost/data"
-    }
+	"db": {
+		"connection": "mongodb+srv://chirag:password1234@cluster0-6cdwg.mongodb.net/register?retryWrites=true&w=majority"
+	}
 }

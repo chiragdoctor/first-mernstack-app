@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/save', async (req, res) => {
-	console.log('Hit taken');
 	const user = new User(req.body);
 	await user.save();
 
